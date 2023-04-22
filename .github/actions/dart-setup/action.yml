@@ -1,0 +1,19 @@
+name: "Setup Dart Environment"
+description: "Setup all required infrastructure to execute Dart code"
+
+inputs:
+  get-packages:
+    description: "Should we get the Dart packages"
+    required: false
+    default: "true"
+
+runs:
+  using: composite
+  steps:
+    - name: "Setup Dart"
+      uses: dart-lang/setup-dart@v1
+
+    - name: "Get Packages"
+      if: ${{ inputs.get-packages == 'true' }}
+      shell: bash
+      run: dart pub get

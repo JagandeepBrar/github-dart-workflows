@@ -1,0 +1,9 @@
+name: "Publish Dart Package"
+description: "Publish a Dart Package to Pub.dev"
+
+runs:
+  using: composite
+  steps:
+    - name: "Publish Package"
+      shell: bash
+      run: dart pub publish -f

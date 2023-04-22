@@ -1,0 +1,16 @@
+name: "Checkout Repository"
+description: "Checkout the GitHub Repository"
+
+inputs:
+  fetch-depth:
+    description: "The amount of commits to fetch"
+    required: false
+    default: "1"
+
+runs:
+  using: composite
+  steps:
+    - name: "Checkout Repository"
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: ${{ inputs.fetch-depth }}

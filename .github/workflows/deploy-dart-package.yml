@@ -1,0 +1,21 @@
+name: "Deploy Dart Package"
+
+on:
+  workflow_call:
+
+jobs:
+  publish:
+    name: "Publish to pub.dev"
+    runs-on: ubuntu-latest
+    environment: pub.dev
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout Repository
+        uses: JagandeepBrar/github-dart-workflows/.github/actions/checkout-repository@main
+
+      - name: Setup Dart
+        uses: JagandeepBrar/github-dart-workflows/.github/actions/dart-setup@main
+
+      - name: Publish Package
+        uses: JagandeepBrar/github-dart-workflows/.github/actions/dart-publish-package@main
